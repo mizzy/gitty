@@ -1,17 +1,21 @@
 <div class="page-header">
-  <h1>Commit History</h1>
+  <h1>Revision History</h1>
 </div>
 
 <%= form_tag compare_path do %>
 
-<input type="submit" class="btn" value="Compare" />
+<div>
+  Select any two versions to <input type="submit" class="btn" value="Compare" />
+</div>
 
-<table class="bordered-table zebra-striped">
-<tr><th></th><th>Commit Message</th><th>Commit Date</th></tr>
+<table class="bordered-table zebra-striped" style="margin: 10px;">
+<tr><th></th><th>Message</th><th>Date</th></tr>
 <%= render(partial: "commit", collection: @commits) %>
 </table>
 
-<input type="submit" class="btn" value="Compare" />
+<div>
+  Select any two versions to <input type="submit" class="btn" value="Compare" />
+</div>
 
 
 <% end %>

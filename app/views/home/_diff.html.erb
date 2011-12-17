@@ -2,10 +2,13 @@
 
 <h2><%= diff.a_path %></h2>
 
+<% diff = diff.diff.split("\n") %>
+<% if diff.length > 2 %>
+
 <div class="compare">
   <div class="data highlight">
     <table>
-      <% diff.diff.split("\n")[2..-1].each_with_index do |line, line_index| %>
+      <% diff[2..-1].each_with_index do |line, line_index| %>
       <tr>
         <td class="line_numbers"><%= left_diff_line_number(0, line) %></td>
         <td class="line_numbers"><%= right_diff_line_number(0, line) %></td>
@@ -17,5 +20,10 @@
     </table>
   </div>
 </div>
+<% else %>
+<pre>
+<%= diff.first %>
+</pre>
+<% end %>
 
 <% end %>

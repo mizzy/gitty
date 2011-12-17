@@ -19,8 +19,8 @@ class HomeController < ApplicationController
 
   def diff
     versions = params[:versions].split(/-/)
-    repo    = Grit::Repo.new("/home/#{session[:name]}")
-    @diff   = repo.diff(versions.first, versions.last)
+    repo     = Grit::Repo.new("/home/#{session[:name]}")
+    @diff    = repo.diff(versions.first, versions.last)
   end
 
 
