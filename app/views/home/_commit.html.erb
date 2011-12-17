@@ -1,5 +1,5 @@
 <tr>
+<td><input type="checkbox" name="versions[]" value="<%= commit.id %>"></td>
 <td><%= commit.short_message %></td>
 <td><%= commit.committed_date %></td>
-<td><%= link_to 'diff', diff_path(id: commit.id) %></td>
 </tr>

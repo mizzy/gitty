@@ -2,7 +2,16 @@
   <h1>Commit History</h1>
 </div>
 
+<%= form_tag compare_path do %>
+
+<input type="submit" class="btn" value="Compare" />
+
 <table class="bordered-table zebra-striped">
-<tr><th>Commit Message</th><th>Commit Date</th><th></th></tr>
+<tr><th></th><th>Commit Message</th><th>Commit Date</th></tr>
 <%= render(partial: "commit", collection: @commits) %>
 </table>
+
+<input type="submit" class="btn" value="Compare" />
+
+
+<% end %>

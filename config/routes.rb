@@ -8,7 +8,8 @@ Gitty::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  get 'diff/:id' => 'home#diff', as: 'diff'
+  post 'compare'        => 'home#compare', as: 'compare'
+  get  'diff/:versions' => 'home#diff',    as: 'diff'
 
   resources :users
 
