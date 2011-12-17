@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-require 'syslog'
-
-Syslog.open()
+require 'rubygems'
+require 'grit'
 
 if ARGV[1]
   system(ARGV[1])
@@ -17,6 +16,6 @@ if File.exist?(message_file)
   File.delete(message_file)
 end
 
-system("cd #{ENV['HOME']}")
-system("git add .")
-system("git commit -a -m '#{message}'")
+repo = Grit::Repo.new(ENV['HOME'])
+repo.add('.')
+repo.commit_all(message)
