@@ -8,7 +8,7 @@ class HomeController < ApplicationController
       return
     end
     repo = Grit::Repo.new("/home/#{session[:name]}")
-    @commits = repo.commits
+    @commits = repo.commits('master', 50)
   end
 
   def compare
