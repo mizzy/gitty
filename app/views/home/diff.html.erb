@@ -2,4 +2,9 @@
   <h1>Diff</h1>
 </div>
 
+<h2>Commit Message </h2>
+<pre>
+<%= @commit.message %>
+</pre>
+
 <%= render(partial: "diff", collection: @diff) %>

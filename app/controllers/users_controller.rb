@@ -57,6 +57,7 @@ class UsersController < ApplicationController
         logger.info(password)
         system("sudo useradd #{name} -s #{Rails.root}/script/gitty_shell.rb -p '#{password}'")
         system("sudo -u #{name} git init /home/#{name}")
+        system("sudo chmod 755 /home/#{name}")
         format.html { redirect_to home_url }
         format.json { render json: @user, status: :created, location: @user }
       else
