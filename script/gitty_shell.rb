@@ -4,12 +4,20 @@ require 'syslog'
 
 Syslog.open()
 
-Syslog.info(ARGV[1])
+#Syslog.info(ARGV[1])
 
 #ENV.each_key do |key|
 #  Syslog.info(key + " " + ENV[key])
 #end
 
-system(ARGV[1])
+if ARGV[1]
+  system(ARGV[1])
+else
+  system("/bin/bash")
+end
 
-Syslog.info('hoge')
+#Syslog.info('hoge')
+
+system("cd #{ENV['HOME']}")
+system("git add .")
+system("git commit -a -m 'commit'")

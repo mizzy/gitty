@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Please Log In</h1>
+</div>
+
+<div class="depot_form">
+  <% if flash[:alert] %>
+  <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_tag do %>
+  <fieldset>
+    <div class="clearfix">
+      <label for="name">Name:</label>
+      <div class="input">
+        <%= text_field_tag :name, params[:name] %>
+      </div>
+    </div>
+    <div class="clearfix">
+      <label for="password">Password:</label>
+      <div class="input">
+        <%= password_field_tag :password, params[:password] %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Login", class: "btn primary" %>
+      or <%= link_to 'Create Account', new_user_path %>
+    </div>
+  </fieldset>
+  <% end %>
+</div>
+

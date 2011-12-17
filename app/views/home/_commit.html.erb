@@ -1,0 +1,5 @@
+<tr>
+<td><%= commit.message %></td>
+<td><%= commit.committed_date %></td>
+<td><%= link_to 'diff', diff_path(id: commit.id) %></td>
+</tr>
