@@ -1,29 +1,29 @@
 <% if diff.a_path != '.message' %>
 
-<h2><%= diff.a_path %></h2>
-
+<% path = diff.a_path %>
 <% diff = diff.diff.split("\n") %>
-<% if diff.length > 2 %>
 
 <div class="compare">
   <div class="data highlight">
     <table>
-      <% diff[2..-1].each_with_index do |line, line_index| %>
+      <tr><th colspan="3"><%= path %></th></tr>
+      <% if diff.length > 2 %>
+        <% diff[2..-1].each_with_index do |line, line_index| %>
+        <tr>
+          <td class="line_numbers"><%= left_diff_line_number(0, line) %></td>
+          <td class="line_numbers"><%= right_diff_line_number(0, line) %></td>
+          <td>
+            <pre><div class="<%= line_class(line) %>"><%= line %></div></pre>
+          </td>
+        </tr>
+        <% end %>
+      <% else %>
       <tr>
-        <td class="line_numbers"><%= left_diff_line_number(0, line) %></td>
-        <td class="line_numbers"><%= right_diff_line_number(0, line) %></td>
-        <td>
-          <pre><div class="<%= line_class(line) %>"><%= line %></div></pre>
-        </td>
+        <td><pre><div><%= diff.first %></div></pre></td>
       </tr>
       <% end %>
     </table>
   </div>
 </div>
-<% else %>
-<pre>
-<%= diff.first %>
-</pre>
-<% end %>
 
 <% end %>
